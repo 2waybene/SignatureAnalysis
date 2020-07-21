@@ -19,6 +19,7 @@ function(input, output) {
   source("server-Tscore.R",local = TRUE)
   source("server-bootstrap.R",local = TRUE)
   source("server-sem.R",local = TRUE)
-  #source("server-dynamic.R",local = TRUE)
+  
+  source("server-custom-sem.R",local = TRUE)
   
 }
