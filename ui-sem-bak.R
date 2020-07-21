@@ -4,10 +4,9 @@ load ("dataSEM/new_t_scores_w_lev.rda")
 endoVars <- c(colnames(dat),colnames(NewDT)) # Get variables
 exoVars <- c(colnames(dat)) # Get variables
 
-
-
 tabPanel("SEM", 
          br(),
+         
          
          tabsetPanel(
              tabPanel("Model", 
@@ -19,11 +18,8 @@ tabPanel("SEM",
                           column(5,div(style="display: inline-block;vertical-align:top;",verbatimTextOutput("semSummary")))),
                       column(4, # SEM Model image
                              div(style="display: inline-block;vertical-align:top;",imageOutput("semModel")))
-                      
-                      
              ),
              tabPanel("SEM Intro",includeMarkdown("instructions/SEMIntro.Rmd")) # Intro markdown file
-             
          )
 )
 

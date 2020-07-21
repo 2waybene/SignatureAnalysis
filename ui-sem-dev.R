@@ -2,14 +2,29 @@ load ("dataSEM/parsedNewDT.rda")
 load ("dataSEM/new_t_scores_w_lev.rda")
 
 endoVars <- c(colnames(dat),colnames(NewDT)) # Get variables
-exoVars <- c(colnames(dat)) # Get variables
+exoVars  <- c(colnames(dat)) # Get variables
+
+#endoVars <- NULL
+#exoVars  <- NULL
+
 
 
 
 tabPanel("SEM", 
          br(),
          
-         tabsetPanel(
+         fluidRow(
+           
+           div(style="display: inline-block;vertical-align:top; width: 275px;",fileInput("fileSubset","User provided file for SEM")), # Subset file input
+           div(style="display: inline-block;vertical-align:top; width: 30px;",HTML("<br>")),
+           
+           
+           br(),
+           actionButton("goButton", "Run SEM",
+                    style="font-weight: bold; color: #00FF08; background-color: #aea79f; border-color: #aea79f"),
+           br(),
+           br(),
+           tabsetPanel(
              tabPanel("Model", 
                       fluidRow(
                           column(3, # Drop down menus
@@ -19,11 +34,9 @@ tabPanel("SEM",
                           column(5,div(style="display: inline-block;vertical-align:top;",verbatimTextOutput("semSummary")))),
                       column(4, # SEM Model image
                              div(style="display: inline-block;vertical-align:top;",imageOutput("semModel")))
-                      
-                      
              ),
              tabPanel("SEM Intro",includeMarkdown("instructions/SEMIntro.Rmd")) # Intro markdown file
-             
+           )
          )
 )
 

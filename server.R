@@ -5,6 +5,7 @@ source("helpers.R")
 function(input, output) {
   # Global values environment for storing input & processed variables
   globalValues <- reactiveValues(
+       SEMfile=data.frame(),  ## for dynamic SEM modeling
        MasterSig=data.frame(),
        MasterArray=data.frame(),
        VanillaSig=data.frame(),
@@ -18,5 +19,6 @@ function(input, output) {
   source("server-Tscore.R",local = TRUE)
   source("server-bootstrap.R",local = TRUE)
   source("server-sem.R",local = TRUE)
+  #source("server-dynamic.R",local = TRUE)
   
 }
