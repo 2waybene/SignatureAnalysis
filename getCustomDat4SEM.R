@@ -11,3 +11,13 @@ rownames(dat)
 colnames(dat)
 
 
+load ("~/myGit/SignatureAnalysis/dataSEM/parsedNewDT.rda")
+load ("~/myGit/SignatureAnalysis/dataSEM/new_t_scores_w_lev.rda")
+
+
+
+#endoVars <- c(colnames(dat),colnames(NewDT)) # Get variables
+#exoVars  <- c(colnames(dat)) # Get variables
+
+dat <- as.data.frame(c(dat,NewDT))
+endoVars <- c(colnames(dat)) # Get variables
