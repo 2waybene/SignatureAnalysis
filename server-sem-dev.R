@@ -1,7 +1,21 @@
-# Load T-Scores variables, SEM blank image
-load ("dataSEM/parsedNewDT.rda") 
-load ("dataSEM/new_t_scores_w_lev.rda")
-Combined <- as.data.frame(c(dat,NewDT))
+
+
+dat <- NULL
+
+
+if (file.exists("dataSEM/sampleDAT.txt")){
+  dt <- read.table ("dataSEM/sampleDAT.txt", sep="\t", header = TRUE )
+  dat <- as.data.frame(dt[,-1])
+  rownames(dat) <- dt[,1]
+  Combined <- dat
+}else{
+  load ("dataSEM/parsedNewDT.rda")
+  load ("dataSEM/new_t_scores_w_lev.rda")
+  Combined <- as.data.frame(c(dat,NewDT))
+}
+
+
+
 img <- readPNG("www/SEMBlank2.png")
 img <- as.raster(img)
 
@@ -24,7 +38,7 @@ chosenEndo <- reactive({
 output$semSummary <- renderPrint({
   mod <- paste0(chosenEndo()," ~ ",chosenExo1()," + ", chosenExo2())
   mod.fit <<- sem(mod, data=Combined)
-  summary(mod.fit)
+  summary(mod.fit, fit.measures = TRUE)
 })
 
 # Create SEM model image

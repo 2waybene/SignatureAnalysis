@@ -1,11 +1,10 @@
 
 
 
-#server <- function(input, output, session) {
-  
+
   
   observeEvent(input$dist, {
-    updateTabsetPanel(session, "params", selected = input$dist)
+    updateTablePanel("params", selected = input$dist)
   }) 
   
   sample <- reactive({
@@ -17,5 +16,5 @@
   })
   
   output$hist <- renderPlot(hist(sample()), res = 96)
-#}
+
 
