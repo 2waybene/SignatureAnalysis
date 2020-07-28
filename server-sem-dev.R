@@ -44,7 +44,7 @@ lavaanText <- reactive({
   print(summary(mod.fit, fit.measures = TRUE))
   sink()
   
-  summary(mod.fit)
+  summary(mod.fit, fit.measures = TRUE)
 })
 
 semImage <- reactive({
