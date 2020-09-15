@@ -21,3 +21,7 @@ the SignatureAnalysis app on your computer:
  shiny::runApp("/Users/li11/myGit/SignatureAnalysis/")
 
 5) The application should launch and be used interactively
+
+In order to run "Bootstrap", the user needs to firstly run T-scores calculation. The Bootstrap is designed to 
+provide "expirical distribution" of elimination with/without replacement through a bootstrap procedure.
+Please see the paper "" for details.
