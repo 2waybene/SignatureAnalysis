@@ -38,7 +38,8 @@ output$semModel <- renderImage ({
   filePath <- paste0(tmpdir,"/myplot.png")
   
   # Plotting on png to save in temp directory
-  png(file=filePath, bg="transparent",width=800, height=800,res=1000) # Start png
+  #png(file=filePath, bg="transparent",width=800, height=800,res=1000) # Start png
+  png(file=filePath, bg="transparent",width=600, height=600,res=500) # Start png
   par(mar=rep(0, 4),bg = 'white')
   plot(1:9.9,type='n',axes=FALSE,ann=FALSE)
   rasterImage(img, 1, 1, 9, 9)
